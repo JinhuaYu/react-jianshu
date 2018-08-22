@@ -48,6 +48,33 @@ export const NavItem = styled.div`
   }
 `;
 
+export const SearchWrapper = styled.div`
+  float: left;
+  position: relative;
+  margin-top: 9px;
+  .iconfont {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 20px;
+    color: #999;
+  }
+  &.focused {
+    input {
+      width: 200px;
+    }
+    .iconfont {
+      background: #888;
+      color: #fff;
+    }
+  }
+`;
+
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
@@ -58,9 +85,9 @@ export const NavSearch = styled.input.attrs({
   border-radius: 40px;
   background: #eee;  
   border: none;
-  outline: none;
-  margin-top: 9px;
+  outline: none;  
   margin-left: 20px;
+  color: #666;
   &::placeholder {
     color: #999;
   }
