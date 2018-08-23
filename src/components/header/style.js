@@ -66,12 +66,25 @@ export const SearchWrapper = styled.div`
   }
   &.focused {
     input {
-      width: 200px;
+      width: 240px;
     }
     .iconfont {
       background: #888;
       color: #fff;
     }
+  }
+  /* CSSTransition 动画 */
+  .slide-enter {
+    transition: width .3s ease-in-out;
+  }
+  .slide-enter-active {
+    width: 240px;
+  }
+  .slide-exit {
+    transition: width .3s ease-in-out;
+  }
+  .slide-exit-active {
+    width: 160px;
   }
 `;
 
