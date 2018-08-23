@@ -63,6 +63,7 @@ export const SearchWrapper = styled.div`
     top: 4px;
     font-size: 20px;
     color: #999;
+    cursor: pointer;
   }
   &.focused {
     input {
@@ -72,20 +73,7 @@ export const SearchWrapper = styled.div`
       background: #888;
       color: #fff;
     }
-  }
-  /* CSSTransition 动画 */
-  .slide-enter {
-    transition: width .3s ease-in-out;
-  }
-  .slide-enter-active {
-    width: 240px;
-  }
-  .slide-exit {
-    transition: width .3s ease-in-out;
-  }
-  .slide-exit-active {
-    width: 160px;
-  }
+  }  
 `;
 
 export const NavSearch = styled.input.attrs({
@@ -103,6 +91,20 @@ export const NavSearch = styled.input.attrs({
   color: #666;
   &::placeholder {
     color: #999;
+  }
+
+  /* CSSTransition 动画 */
+  &.slide-enter {
+    transition: width .3s ease-in-out;
+  }
+  &.slide-enter-active {
+    width: 240px;
+  }
+  &.slide-exit {
+    transition: width .3s ease-in-out;
+  }
+  &.slide-exit-active {
+    width: 160px;
   }
 `;
 
