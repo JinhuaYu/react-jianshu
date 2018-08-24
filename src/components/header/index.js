@@ -9,6 +9,13 @@ import {
   NavItem,
   SearchWrapper,
   NavSearch,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoList,
+  SearchInfoItem,
+  SearchInfoHistory,
+  SearchInfoHistoryItem,
   Addition,
   Button
 } from './style'
@@ -35,7 +42,26 @@ const Header = (props) => {
               onBlur={props.handleInputBlur}
             ></NavSearch>              
           </CSSTransition>
-          <i className='iconfont'>&#xe6e4;</i>            
+          <i className='iconfont'>&#xe6e4;</i>
+          <SearchInfo className='search-tips'>
+            <SearchInfoTitle>
+              热门搜索
+              <SearchInfoSwitch>换一批</SearchInfoSwitch>
+            </SearchInfoTitle>
+            <SearchInfoList>
+              <SearchInfoItem>item</SearchInfoItem>
+              <SearchInfoItem>item</SearchInfoItem>
+              <SearchInfoItem>item</SearchInfoItem>
+              <SearchInfoItem>item</SearchInfoItem>
+              <SearchInfoItem>item</SearchInfoItem>
+              <SearchInfoItem>item</SearchInfoItem>
+            </SearchInfoList>
+            <SearchInfoHistory>
+              <SearchInfoHistoryItem>
+                historyItem
+              </SearchInfoHistoryItem>
+            </SearchInfoHistory>
+          </SearchInfo>            
         </SearchWrapper>          
       </Nav>
       <Addition>
