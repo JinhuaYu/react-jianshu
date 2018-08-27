@@ -20,6 +20,34 @@ import {
   Button
 } from './style'
 
+const getSearchListArea = (show) => {
+  if (show) {
+    return (
+      <SearchInfo>
+        <SearchInfoTitle>
+          热门搜索
+          <SearchInfoSwitch>换一批</SearchInfoSwitch>
+        </SearchInfoTitle>
+        <SearchInfoList>
+          <SearchInfoItem>item</SearchInfoItem>
+          <SearchInfoItem>item</SearchInfoItem>
+          <SearchInfoItem>item</SearchInfoItem>
+          <SearchInfoItem>item</SearchInfoItem>
+          <SearchInfoItem>item</SearchInfoItem>
+          <SearchInfoItem>item</SearchInfoItem>
+        </SearchInfoList>
+        <SearchInfoHistory>
+          <SearchInfoHistoryItem>
+            historyItem
+          </SearchInfoHistoryItem>
+        </SearchInfoHistory>
+      </SearchInfo> 
+    )
+  } else {
+    return null
+  }  
+}
+
 const Header = (props) => {
   return (
     <HeaderWrapper>
@@ -43,25 +71,7 @@ const Header = (props) => {
             ></NavSearch>              
           </CSSTransition>
           <i className='iconfont'>&#xe6e4;</i>
-          <SearchInfo className='search-tips'>
-            <SearchInfoTitle>
-              热门搜索
-              <SearchInfoSwitch>换一批</SearchInfoSwitch>
-            </SearchInfoTitle>
-            <SearchInfoList>
-              <SearchInfoItem>item</SearchInfoItem>
-              <SearchInfoItem>item</SearchInfoItem>
-              <SearchInfoItem>item</SearchInfoItem>
-              <SearchInfoItem>item</SearchInfoItem>
-              <SearchInfoItem>item</SearchInfoItem>
-              <SearchInfoItem>item</SearchInfoItem>
-            </SearchInfoList>
-            <SearchInfoHistory>
-              <SearchInfoHistoryItem>
-                historyItem
-              </SearchInfoHistoryItem>
-            </SearchInfoHistory>
-          </SearchInfo>            
+          {getSearchListArea(props.focused)}           
         </SearchWrapper>          
       </Nav>
       <Addition>

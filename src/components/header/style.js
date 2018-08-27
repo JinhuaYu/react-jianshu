@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+ import styled from 'styled-components'
 import LogoPic from  '../../statics/logo.png'
 
 export const HeaderWrapper = styled.div`
@@ -68,15 +68,11 @@ export const SearchWrapper = styled.div`
   }
   &.focused {
     input {
-      width: 360px;
+      width: 260px;
     }
     .iconfont {
       background: #888;
       color: #fff;
-    }
-    .search-tips {
-      opacity: 1;
-      visibility: visible;
     }
   }  
 `
@@ -84,7 +80,7 @@ export const SearchWrapper = styled.div`
 export const NavSearch = styled.input.attrs({
   placeholder: '搜索'
 })`
-  width: 240px;
+  width: 180px;
   height: 38px;
   padding: 0 40px 0 20px;
   font-size: 14px;
@@ -101,13 +97,13 @@ export const NavSearch = styled.input.attrs({
     transition: width .3s ease-in-out;
   }
   &.slide-enter-active {
-    width: 320px;
+    width: 260px;
   }
   &.slide-exit {
     transition: width .3s ease-in-out;
   }
   &.slide-exit-active {
-    width: 240px;
+    width: 180px;
   }
 `
 
@@ -119,8 +115,6 @@ export const SearchInfo = styled.div`
   background: #fff;
   box-shadow: 0 0 8px rgba(0,0,0,.2);
   border-radius: 4px;
-  opacity: 0;
-  visibility: hidden;
   &::before {
     position: absolute;
     background: #fff;
