@@ -23,22 +23,33 @@ import {
 class Header extends Component {
 
   getSearchListArea() {
-    const { focused, list } = this.props // 解构赋值
-    if (focused) {
+    const { focused, mouseIn, list, page, totalPage, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props // 解构赋值    
+    const newList = list.toJS()
+    const pageList = []
+    if (newList.length) {
+      for (let i = (page -1) * 10; i < page * 10; i++) {
+        pageList.push(
+          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+        )
+      }
+    }
+        
+    if (focused || mouseIn) {
       return (
-        <SearchInfo>
+        <SearchInfo 
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave} 
+        >
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+            <SearchInfoSwitch
+              onClick = { () => handleChangePage(page, totalPage) }
+            >
+            换一批
+            </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
-            {
-              list.map((item) => {
-                return (
-                  <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                )
-              })
-            }            
+            { pageList}            
           </SearchInfoList>
           <SearchInfoHistory>
             <SearchInfoHistoryItem>
@@ -90,20 +101,40 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.getIn(['header', 'focused']),
-    list: state.getIn(['header', 'list'])
+    focused: state.getIn(['header', 'focused']), // 
+    mouseIn: state.getIn(['header', 'mouseIn']), //
+    list: state.getIn(['header', 'list']), //
+    page: state.getIn(['header', 'page']), //
+    totalPage: state.getIn(['header', 'totalPage']) // 
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    // input 聚焦
     handleInputFocus () {
       dispatch(actionCreators.getList())
       dispatch(actionCreators.searchFocus())
     },
-
+    // input 失焦
     handleInputBlur () {
       dispatch(actionCreators.searchBlur())
+    },
+    // 热门搜索面板鼠标移入
+    handleMouseEnter () {
+      dispatch(actionCreators.mouseEnter())
+    },
+    // 热门搜索面板鼠标移入
+    handleMouseLeave () {
+      dispatch(actionCreators.mouseLeave())
+    },
+    // 换一批
+    handleChangePage (page, totalPage) {
+      if (page < totalPage) {
+        dispatch(actionCreators.changePage(page + 1)) 
+      } else {
+        dispatch(actionCreators.changePage(1))
+      }      
     }
   }
 }

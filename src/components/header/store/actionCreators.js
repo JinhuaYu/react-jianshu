@@ -5,7 +5,8 @@ import axios from 'axios'
 // 内部调用
 const changeList = (data) => ({
   type: constants.CHANGE_LIST,
-  data: fromJS(data)
+  data: fromJS(data),
+  totalPage: Math.ceil( data.length / 10 )
 })
 
 // 导出 export 外部使用
@@ -15,6 +16,19 @@ export const searchFocus = () => ({
 
 export const searchBlur = () => ({
   type: constants.SEARCH_BLUR
+})
+
+export const mouseEnter = () => ({
+  type: constants.MOUSE_ENTER
+})
+
+export const mouseLeave = () => ({
+  type: constants.MOUSE_LEAVE
+})
+
+export const changePage = (page) => ({
+  type: constants.CHANGE_PAGE,
+  page
 })
 
 export const getList = () => {
