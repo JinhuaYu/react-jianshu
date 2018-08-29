@@ -53,7 +53,7 @@ export const SearchWrapper = styled.div`
   position: relative;
   margin-top: 9px;
   margin-left: 20px;
-  .iconfont {
+  .icon-search {
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -70,7 +70,7 @@ export const SearchWrapper = styled.div`
     input {
       width: 260px;
     }
-    .iconfont {
+    .icon-search {
       background: #888;
       color: #fff;
     }
@@ -151,6 +151,10 @@ export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 12px;
   cursor: pointer;
+  .spin {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
 `
 export const SearchInfoList = styled.div`
   padding: 0 10px 10px;

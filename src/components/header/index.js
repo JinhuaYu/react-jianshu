@@ -48,7 +48,7 @@ class Header extends Component {
             <SearchInfoSwitch
               onClick = { () => handleChangePage(page, totalPage) }
             >
-            换一批
+              <i className='iconfont spin'>&#xe851;</i>换一批
             </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
@@ -89,7 +89,7 @@ class Header extends Component {
                 onBlur={handleInputBlur}
               ></NavSearch>              
             </CSSTransition>
-            <i className='iconfont'>&#xe6e4;</i>
+            <i className='iconfont icon-search'>&#xe6e4;</i>
             {this.getSearchListArea()}           
           </SearchWrapper>          
         </Nav>
