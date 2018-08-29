@@ -28,9 +28,12 @@ class Header extends Component {
     const pageList = []
     if (newList.length) {
       for (let i = (page -1) * 10; i < page * 10; i++) {
-        pageList.push(
-          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
-        )
+        if (newList[i] !== undefined) {
+          console.log(i, newList[i])
+          pageList.push(
+            <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+          ) 
+        }        
       }
     }
         
@@ -130,11 +133,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     // 换一批
     handleChangePage (page, totalPage) {
-      if (page < totalPage) {
-        dispatch(actionCreators.changePage(page + 1)) 
-      } else {
-        dispatch(actionCreators.changePage(1))
-      }      
+      page < totalPage ? page += 1 : page = 1
+      dispatch(actionCreators.changePage(page))      
     }
   }
 }
