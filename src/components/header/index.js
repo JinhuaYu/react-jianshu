@@ -29,11 +29,10 @@ class Header extends Component {
     if (newList.length) {
       for (let i = (page -1) * 10; i < page * 10; i++) {
         if (newList[i] !== undefined) {
-          console.log(i, newList[i])
           pageList.push(
             <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
           ) 
-        }        
+        }
       }
     }
         
@@ -46,9 +45,9 @@ class Header extends Component {
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch
-              onClick = { () => handleChangePage(page, totalPage) }
+              onClick = { () => handleChangePage(page, totalPage, this.spinIcon) }
             >
-              <i className='iconfont spin'>&#xe851;</i>换一批
+              <i ref={icon => this.spinIcon = icon} className='iconfont spin'>&#xe851;</i>换一批
             </SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
@@ -132,7 +131,16 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionCreators.mouseLeave())
     },
     // 换一批
-    handleChangePage (page, totalPage) {
+    handleChangePage (page, totalPage, spinIcon) {
+      // 图标旋转
+      let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10)
+      } else {
+        originAngle = 0
+      }
+      spinIcon.style.transform = 'rotate('+ (originAngle + 360) +'deg)'
+      // 换页
       page < totalPage ? page += 1 : page = 1
       dispatch(actionCreators.changePage(page))      
     }

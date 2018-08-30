@@ -145,15 +145,24 @@ export const SearchInfoTitle = styled.div`
   padding: 20px 10px 20px 10px;
   font-size: 14px;
   color: #969696;
+  position: relative;
 `
 
 export const SearchInfoSwitch = styled.span`
-  float: right;
+  position: absolute;
+  right: 10px;
   font-size: 12px;
+  color: inherit;
   cursor: pointer;
   .spin {
-    vertical-align: middle;
-    margin-right: 6px;
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 12px;
+    transition: all .3s ease-in;
+    transform-origin: center center;
+  }
+  &:hover {
+    color: #333;
   }
 `
 export const SearchInfoList = styled.div`
