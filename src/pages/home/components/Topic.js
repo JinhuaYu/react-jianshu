@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
   TopicWrapper,
   TopicItem
@@ -6,15 +7,27 @@ import {
 
 class Topic extends Component {
   render () {
+    const { list } = this.props
     return (
       <TopicWrapper>
-        <TopicItem>
-          <img src="https://upload.jianshu.io/collections/images/95/1.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64" alt=""/>
-          <span>故事</span>
-        </TopicItem>        
+        {
+          list.map((item) => {
+            return (
+              <TopicItem key={item.get('id')}>
+                <img src={item.get('imgUrl')}
+                />
+                <span>{item.get('title')}</span>
+              </TopicItem>  
+            )
+          })
+        }            
       </TopicWrapper>
     )
   }
 }
 
-export default Topic
+const mapState = (state) => ({
+  list: state.get('home').get('topicList')
+})
+
+export default connect(mapState, null)(Topic)

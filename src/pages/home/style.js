@@ -41,10 +41,10 @@ export const TopicItem = styled.a`
     height: 32px;
     vertical-align: middle;
   }
-
+  
   span {
     display: inline-block;
-    padding: 0 11px 0 6px;
+    padding: 0 10px 0 10px;
     font-size: 14px;
   }
 `
