@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
+  // 
   topicList: [{
     id: 1,
     title: '热点',
@@ -26,6 +27,29 @@ const defaultState = fromJS({
     title: '一文带你看懂谷歌年度新品发布会有哪些黑科技？',
     desc: '向来以科技著称的谷歌，现在也是越来越会玩了。继早前公开表示将会在10月9日于美国纽约召开新品发布会之后，谷歌又宣布将在同一天于法国巴黎召开发布会...',
     imgUrl: 'https://upload-images.jianshu.io/upload_images/5993666-76db345919ce5560.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
+  }],
+
+  // 右侧推荐
+  recommendList: [{
+    id: '1',
+    url: '',
+    img: 'https://cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'
+  },{
+    id: '2',
+    url: '',
+    img: 'https://cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'
+  },{
+    id: '3',
+    url: '',
+    img: 'https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
+  },{
+    id: '4',
+    url: '',
+    img: 'https://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
+  },{
+    id: '5',
+    url: '',
+    img: 'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
   }]
 })
 

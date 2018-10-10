@@ -19,7 +19,7 @@ export const HomeLeft = styled.div`
   }
 `
 export const HomeRight = styled.div`
- width: 240px;
+ width: 280px;
  float: right;
 `
 
@@ -96,6 +96,19 @@ export const ListItem = styled.div`
       height: 100%;
       border-radius: 4px;
       border: 1px solid #f0f0f0;
+    }
+  }
+`
+
+// 右侧推荐
+export const RecommendWrap = styled.div`
+  margin-top: 30px;  
+`
+export const RecommendItem = styled.div`
+  a{
+    img{
+      width: 100%;
+      vertical-align: middle;
     }
   }
 `
