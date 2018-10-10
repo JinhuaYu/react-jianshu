@@ -14,7 +14,9 @@ class Topic extends Component {
           list.map((item) => {
             return (
               <TopicItem key={item.get('id')}>
-                <img src={item.get('imgUrl')}
+                <img 
+                  src={item.get('imgUrl')}
+                  alt=''
                 />
                 <span>{item.get('title')}</span>
               </TopicItem>  

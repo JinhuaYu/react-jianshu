@@ -9,8 +9,24 @@ const defaultState = fromJS({
     id: 2,
     title: '手绘',
     imgUrl: 'https://upload.jianshu.io/collections/images/283250/%E6%BC%AB%E7%94%BB%E4%B8%93%E9%A2%98.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64'
-  }
-]
+  }],
+
+  articleList: [{
+    id: 1,
+    title: '颠覆声中，新零售如何才能成为电商的完美替代者？',
+    desc: '对于广大的电商从业者来讲，他们不得不面临一个全新的现实，那就是电商时代随着互联网红利的落幕而优势渐失。单单只是将商品的销售展示渠道迁移到线上，而...',
+    imgUrl: 'https://upload-images.jianshu.io/upload_images/2638393-ff0edcef241db1c0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
+  },{
+    id: 2,
+    title: '为抵御“科技殖民”，印度建防火墙能培养出自己的BAT吗？',
+    desc: '向来以科技著称的谷歌，现在也是越来越会玩了。继早前公开表示将会在10月9日于美国纽约召开新品发布会之后，谷歌又宣布将在同一天于法国巴黎召开发布会...',
+    imgUrl: 'https://upload-images.jianshu.io/upload_images/38281-a01f0257c2765764.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
+  },{
+    id: 3,
+    title: '一文带你看懂谷歌年度新品发布会有哪些黑科技？',
+    desc: '向来以科技著称的谷歌，现在也是越来越会玩了。继早前公开表示将会在10月9日于美国纽约召开新品发布会之后，谷歌又宣布将在同一天于法国巴黎召开发布会...',
+    imgUrl: 'https://upload-images.jianshu.io/upload_images/5993666-76db345919ce5560.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
+  }]
 })
 
 export default (state = defaultState, action) => {
