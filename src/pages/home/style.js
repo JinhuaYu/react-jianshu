@@ -22,7 +22,7 @@ export const HomeRight = styled.div`
  width: 280px;
  float: right;
 `
-
+// 话题推荐
 export const TopicWrapper = styled.div`
   margin-bottom: 20px;
   border-bottom: 1px solid #f0f0f0;
@@ -49,7 +49,7 @@ export const TopicItem = styled.a`
     font-size: 14px;
   }
 `
-
+// 首页文章列表
 export const ListItem = styled.div`
   position: relative;
   width: 100%;
@@ -100,15 +100,77 @@ export const ListItem = styled.div`
   }
 `
 
-// 右侧推荐
+// 右侧
+// 热门推荐
 export const RecommendWrap = styled.div`
-  margin-top: 30px;  
+  margin-top: 24px;
+  margin-bottom: 30px;  
 `
 export const RecommendItem = styled.div`
   a{
     img{
       width: 100%;
       vertical-align: middle;
+      margin-bottom: 6px;
     }
   }
 `
+
+// 推荐作者
+export const RecommendedAuthors = styled.div`
+
+`
+export const RecommendedAuthorsTitle = styled.div`
+  span {
+    font-size: 14px;
+    color: #969696;
+  }
+  .page-change {
+    float: right;
+    font-size: 14px;
+    color: #969696;
+    cursor: pointer;
+    .spin {
+      display: inline-block;
+      font-size: inherit;
+      margin-right: 4px;
+      transition: all .3s ease-in;
+      transform-origin: center center;
+    }
+  }
+
+`
+export const AuthorsList = styled.ul`
+
+`
+export const AuthorsItem = styled.li`
+  margin-top: 20px;
+  .avatar {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+    }
+  }
+  .name {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-right: 60px;
+    font-size: 14px;
+    display: block;    
+    color: #2f2f2f;
+    text-decoration: none;    
+  }
+  p {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #969696;
+  }
+`
+
+

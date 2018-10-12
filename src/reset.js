@@ -47,4 +47,7 @@ injectGlobal`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  p {
+    margin: 0 0 10px;
+  }
 `

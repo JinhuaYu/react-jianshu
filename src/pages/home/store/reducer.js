@@ -1,7 +1,8 @@
+import * as constants from './constants'
 import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
-  // 
+  // 首页推荐话题
   topicList: [{
     id: 1,
     title: '热点',
@@ -11,7 +12,7 @@ const defaultState = fromJS({
     title: '手绘',
     imgUrl: 'https://upload.jianshu.io/collections/images/283250/%E6%BC%AB%E7%94%BB%E4%B8%93%E9%A2%98.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64'
   }],
-
+  // 首页文章列表
   articleList: [{
     id: 1,
     title: '颠覆声中，新零售如何才能成为电商的完美替代者？',
@@ -28,7 +29,6 @@ const defaultState = fromJS({
     desc: '向来以科技著称的谷歌，现在也是越来越会玩了。继早前公开表示将会在10月9日于美国纽约召开新品发布会之后，谷歌又宣布将在同一天于法国巴黎召开发布会...',
     imgUrl: 'https://upload-images.jianshu.io/upload_images/5993666-76db345919ce5560.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
   }],
-
   // 右侧推荐
   recommendList: [{
     id: '1',
@@ -50,11 +50,21 @@ const defaultState = fromJS({
     id: '5',
     url: '',
     img: 'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
-  }]
+  }],  
+  authorList: [], // 推荐作者
+  page: 1, // 当前页
+  totalPage: 1 // 总页数
 })
 
 export default (state = defaultState, action) => {
-  switch (action.type) {    
+  switch (action.type) {
+    case constants.CHANGE_AUTHORLIST:
+      return state.merge({
+        authorList: action.data,
+        totalPage: action.totalPage        
+      })
+    case constants.CHANGE_AUTHORLISTRPAGE:
+      return state.set('page', action.page)    
     default:
       return state
   }

@@ -142,7 +142,7 @@ const mapDispatchToProps = (dispatch) => {
       spinIcon.style.transform = 'rotate('+ (originAngle + 360) +'deg)'
       // 换页
       page < totalPage ? page += 1 : page = 1
-      dispatch(actionCreators.changePage(page))      
+      dispatch(actionCreators.changePage(page))
     }
   }
 }
