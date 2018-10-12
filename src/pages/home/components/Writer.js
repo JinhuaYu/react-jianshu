@@ -11,8 +11,7 @@ import {
 class Writer extends Component {
 
   getRecommendedAuthorsArea () {
-    const { authorList, page, totalPage, getAuthorList, handleChangePage } = this.props
-    getAuthorList()
+    const { authorList, page, totalPage, handleChangePage } = this.props
     const newList = authorList.toJS()
     const contentList = []
     if (newList.length) {
@@ -69,10 +68,6 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    // 获取数据
-    getAuthorList () {
-      dispatch(actionCreators.getList())
-    },
     // 换一批
     handleChangePage (page, totalPage, spinIcon) {
       let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')

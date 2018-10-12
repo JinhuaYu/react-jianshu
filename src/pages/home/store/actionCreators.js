@@ -2,22 +2,25 @@ import * as constants from './constants'
 import { fromJS } from 'immutable'
 import axios from 'axios'
 
-const changeAuthorList = (data) => ({
-  type: constants.CHANGE_AUTHORLIST,
-  data: fromJS(data),
-  totalPage: Math.ceil(data.length / 5)
+const changeHomeData = (data) => ({
+  type: constants.CHANGE_HOME_DATA,
+  topicList: fromJS(data.topicList),
+  articleList: fromJS(data.articleList),
+  recommendList: fromJS(data.recommendList),
+  authorList: fromJS(data.authorList),
+  totalPage: Math.ceil(data.authorList.length / 5)
 })
 
 export const changePage = (page) => ({
-  type: constants.CHANGE_AUTHORLISTRPAGE,
+  type: constants.CHANGE_AUTHORLIST_PAGE,
   page
 })
 
-export const getList = () => {
+export const getHomeData = () => {
   return (dispatch) => {
-    axios.get('/api/writerList.json')
+    axios.get('/api/homeData.json')
     .then((res) => {
-      dispatch(changeAuthorList(res.data.users))
+      dispatch(changeHomeData(res.data.data))
     }).catch(err => err)
   }
 }
