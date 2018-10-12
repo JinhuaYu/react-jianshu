@@ -173,4 +173,16 @@ export const AuthorsItem = styled.li`
   }
 `
 
-
+// 加载更多
+export const LoadMore = styled.div`
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  background: #a5a5a5;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 30px;
+`
