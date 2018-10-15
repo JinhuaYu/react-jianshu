@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../store'
+import { Link } from 'react-router-dom'
 import { 
   RecommendedAuthors,
   RecommendedAuthorsTitle,
@@ -8,7 +9,7 @@ import {
   AuthorsItem
 } from '../style'
 
-class Writer extends Component {
+class Writer extends PureComponent {
 
   getRecommendedAuthorsArea () {
     const { authorList, page, totalPage, handleChangePage } = this.props
@@ -19,10 +20,10 @@ class Writer extends Component {
         if (newList[i] !== undefined) {
           contentList.push(
             <AuthorsItem key={ newList[i].id }>
-              <a href="" className="avatar">
+              <Link to="" className="avatar">
                 <img src={ newList[i].avatar_source } alt=""/>
-              </a>
-              <a href="" className="name">{ newList[i].nickname }</a>
+              </Link>
+              <Link to="" className="name">{ newList[i].nickname }</Link>
               <p>写了{ newList[i].total_wordage }字 · { newList[i].total_likes_count }喜欢</p>
             </AuthorsItem>
           )

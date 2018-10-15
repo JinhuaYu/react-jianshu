@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   RecommendWrap,
   RecommendItem
 } from '../style'
 
-class Recommend extends Component {
+class Recommend extends PureComponent {
   
   render () {
     const { list } = this.props 
@@ -15,9 +16,9 @@ class Recommend extends Component {
         list.map((item) => {
           return (
             <RecommendItem key={item.get('id')}>
-              <a href={item.get('url')}>
+              <Link to={item.get('url')}>
                 <img src={item.get('img')} alt=""/>
-              </a>
+              </Link>
             </RecommendItem>
           )
         })

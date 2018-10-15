@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import Topic from './components/Topic'
@@ -13,7 +13,7 @@ import {
   HomeRight
 } from './style'
 
-class Home extends Component {
+class Home extends PureComponent {
 
   handleScrollTop () {
     window.scrollTo(0, 0)
@@ -25,7 +25,7 @@ class Home extends Component {
         <HomeLeft>
           <div className="banner">
             <img className="banner-img" src="//upload.jianshu.io/admin_banners/web_images/4446/78fbac5a833f2fc90b8a71eb8f7a1d801563cfbe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" alt=""/>
-          </div>          
+          </div> 
           <Topic></Topic>
           <List></List>
         </HomeLeft>
