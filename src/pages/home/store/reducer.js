@@ -8,7 +8,8 @@ const defaultState = fromJS({
   recommendList: [], // 右侧推荐
   authorList: [], // 推荐作者
   page: 1, // 当前页
-  totalPage: 1 // 总页数
+  totalPage: 1, // 总页数
+  showScroll: false
 })
 
 export default (state = defaultState, action) => {
@@ -31,6 +32,9 @@ export default (state = defaultState, action) => {
         articleList: state.get('articleList').concat(action.list),
         articlePage: action.nextPage
       })
+
+    case constants.TOGGLE_BACKTOP_SHOW:
+      return state.set('showScroll', action.status)
 
     default:
       return state

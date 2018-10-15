@@ -38,3 +38,8 @@ export const getMoreList = (page) => {
     })
   }
 }
+
+export const toggleBackTopShow = (status) => ({
+  type: constants.TOGGLE_BACKTOP_SHOW,
+  status
+})

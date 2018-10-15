@@ -186,3 +186,14 @@ export const LoadMore = styled.div`
   cursor: pointer;
   margin-bottom: 30px;
 `
+
+// 回到顶部
+export const BackTop = styled.div`
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  width: 60px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+`
