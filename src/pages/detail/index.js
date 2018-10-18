@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { actionCreators } from './store'
 import {
   DetailWrapper,
   Article,
@@ -44,6 +45,10 @@ class Detail extends PureComponent {
       </DetailWrapper>
     )
   }
+
+  componentDidMount () {
+    this.props.getArticlData()
+  }
 }
 
 const mapState = (state) => ({
@@ -52,4 +57,10 @@ const mapState = (state) => ({
   content: state.getIn(['detail', 'content'])
 })
 
-export default connect(mapState, null)(Detail)
+const mapDispatch = (dispatch) => ({
+  getArticlData () {
+    dispatch(actionCreators.getDetail())
+  }
+})
+
+export default connect(mapState, mapDispatch)(Detail)
