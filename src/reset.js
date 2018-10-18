@@ -50,4 +50,8 @@ injectGlobal`
   p {
     margin: 0 0 10px;
   }
+  a {
+    text-decoration: none;
+    color: #333;
+  }
 `

@@ -18,7 +18,7 @@ class App extends Component {
               <Route path='/detail' exact component={Detail}></Route>
             </div>            
           </BrowserRouter>
-        </div>        
+        </div>
       </Provider>
     );
   }
