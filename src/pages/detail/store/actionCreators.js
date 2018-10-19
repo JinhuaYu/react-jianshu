@@ -9,9 +9,9 @@ const changeDetailData = (data) => ({
   content: fromJS(data.content)
 })
 
-export const getDetail = () => {
+export const getDetail = (id) => {
   return (dispatch) => {
-    axios.get('/api/articleData.json')
+    axios.get('/api/articleData.json?id=' + id)
     .then((res) => {  
       dispatch(changeDetailData(res.data.data))
     }).catch(res => res)

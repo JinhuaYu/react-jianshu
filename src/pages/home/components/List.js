@@ -15,7 +15,7 @@ class List extends PureComponent {
         {
           list.map((item, index) => {
             return (
-              <Link key={index} to='/detail'>
+              <Link key={index} to={'/detail/' + item.get('id')}>
                 <ListItem className='have-img'>
                   <div className='wrap-img'>
                     <img src={item.get('imgUrl')} alt=""/>
