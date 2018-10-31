@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { actionCreators } from './store'
 import {  
   HeaderWrapper,
+  HeaderInner,
   Logo,
   Nav,
   NavItem,
@@ -20,7 +22,7 @@ import {
   Button
 } from './style'
 
-class Header extends Component {
+class Header extends PureComponent {
 
   getSearchListArea() {
     const { focused, mouseIn, list, page, totalPage, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props // 解构赋值    
@@ -66,40 +68,46 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, handleInputBlur, handleInputFocus, list } = this.props
+    const { focused, handleInputBlur, handleInputFocus, list, login } = this.props
     return (
       <HeaderWrapper>
-        <Logo></Logo>
-        <Nav>
-          <NavItem className='left active'>首页</NavItem>
-          <NavItem className='left'>下载App</NavItem>
-          <NavItem className='right'>登录</NavItem>
-          <NavItem className='right'>
-            <i className='iconfont'>&#xe636;</i>
-          </NavItem>
-          <SearchWrapper className={focused ? 'focused' : ''}>
-            <CSSTransition
-              in={focused}
-              timeout={300}
-              classNames='slide'
-            >
-              <NavSearch              
-                onFocus={() => handleInputFocus(list)}
-                onBlur={handleInputBlur}
-              ></NavSearch>              
-            </CSSTransition>
-            <i className='iconfont icon-search'>&#xe6e4;</i>
-            {this.getSearchListArea()}           
-          </SearchWrapper>          
-        </Nav>
-        <Addition>
-          <Button className='reg'>注册</Button>
-          <Button className='writting'><i className='iconfont'>&#xe715;</i> 写文章</Button>  
-        </Addition>
+        <HeaderInner>
+          <Logo/>
+          <Nav>
+            <NavItem className='left active'>首页</NavItem>
+            <NavItem className='left'>下载App</NavItem>                     
+            <SearchWrapper className={focused ? 'focused' : ''}>
+              <CSSTransition
+                in={focused}
+                timeout={300}
+                classNames='slide'
+              >
+                <NavSearch              
+                  onFocus={() => handleInputFocus(list)}
+                  onBlur={handleInputBlur}
+                ></NavSearch>              
+              </CSSTransition>
+              <i className='iconfont icon-search'>&#xe6e4;</i>
+              {this.getSearchListArea()}           
+            </SearchWrapper>          
+          </Nav>
+          <Addition>                                            
+            <Button className='write-btn'><i className='iconfont'>&#xe715;</i> 写文章</Button>                      
+            <Button className='reg'>注册</Button>
+            {
+              login 
+                ? <Link to='/loginout'><Button className='loginOut'>退出</Button></Link>
+                : <Link to='/login'><Button className='login'>登录</Button></Link>
+            }    
+            <Button className='lang-Transform right'>
+              <i className='iconfont'>&#xe636;</i>
+            </Button>  
+          </Addition>
+        </HeaderInner>
       </HeaderWrapper>
     )
   }
-}
+}                                                                                                                       
 
 const mapStateToProps = (state) => {
   return {
@@ -107,7 +115,8 @@ const mapStateToProps = (state) => {
     mouseIn: state.getIn(['header', 'mouseIn']), //
     list: state.getIn(['header', 'list']), //
     page: state.getIn(['header', 'page']), //
-    totalPage: state.getIn(['header', 'totalPage']) // 
+    totalPage: state.getIn(['header', 'totalPage']), // 
+    login: state.getIn(['login', 'login'])
   }
 }
 

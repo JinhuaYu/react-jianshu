@@ -1,34 +1,30 @@
- import styled from 'styled-components'
+import styled from 'styled-components'
 import LogoPic from  '../../statics/logo.png'
 
-export const HeaderWrapper = styled.div`
-  position: relative;
+export const HeaderWrapper = styled.div`  
   height: 58px;
   border-bottom: 1px solid #f0f0f0;
 `
 
-export const Logo = styled.a.attrs({
-  href: '/'
-})`
-  position: absolute;
-  top: 0;
-  left: 0;
+export const HeaderInner = styled.div`
+  position: relative;
+  min-width: 960px;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+`
+
+export const Logo = styled.span`  
   width: 100px;
   height: 58px;
-  display: block;
+  float: left;
   background: url(${LogoPic});
   background-size: contain;
 `
 
-export const Nav = styled.div`
+export const Nav = styled.div`  
   width: 960px;
-  height: 100%;
   margin: 0 auto;
-
-  @media (max-width: 1180px) {    
-    padding-right: 200px;
-    padding-left: 100px;
-  }
 `
 
 export const NavItem = styled.div`
@@ -169,7 +165,7 @@ export const SearchInfoList = styled.div`
   padding: 0 10px 10px;
   border-bottom: 1px solid #f0f0f0;
 `
-export const SearchInfoItem = styled.a`
+export const SearchInfoItem = styled.span`
   display: inline-block;
   white-space: nowrap;
   font-size: 12px; 
@@ -203,23 +199,35 @@ export const Addition = styled.div`
 `
 
 export const Button = styled.div`
-  display: inline-block;
   width: 80px;
   height: 38px;
   line-height: 24px;
   text-align: center;
   font-size: 15px;
   padding: 6px 12px;
-  margin: 9px 5px 0 15px;
+  margin: 9px 5px 0 10px;
   border: 1px solid rgba(236,97,73,.7);
   border-radius: 20px;
+  float: right;
   cursor: pointer;
+  &.login {
+    border: none;
+    margin-left: 0;
+  }
+  &.loginOut{
+    border: none;
+    margin-left: 0;
+  }
   &.reg {
     color: #ea6f5a;
   }
-  &.writting {
+  &.write-btn {
     color: #fff;
     background-color: #ea6f5a;
     width: 100px;
+  }
+  &.lang-Transform{
+    border: none;
+    color: #999;
   }
 `
