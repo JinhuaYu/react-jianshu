@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../../pages/login/store'
 import {  
   HeaderWrapper,
   HeaderInner,
@@ -21,6 +22,7 @@ import {
   Addition,
   Button
 } from './style'
+import { from } from 'array-flatten';
 
 class Header extends PureComponent {
 
@@ -68,11 +70,13 @@ class Header extends PureComponent {
   }
 
   render() {
-    const { focused, handleInputBlur, handleInputFocus, list, login } = this.props
+    const { focused, handleInputBlur, handleInputFocus, list, login, logout } = this.props
     return (
       <HeaderWrapper>
         <HeaderInner>
-          <Logo/>
+          <Link to='/'>
+            <Logo/>
+          </Link>          
           <Nav>
             <NavItem className='left active'>首页</NavItem>
             <NavItem className='left'>下载App</NavItem>                     
@@ -96,9 +100,9 @@ class Header extends PureComponent {
             <Button className='reg'>注册</Button>
             {
               login 
-                ? <Link to='/loginout'><Button className='loginOut'>退出</Button></Link>
+                ? <Button className='loginOut' onClick={logout}>退出</Button>
                 : <Link to='/login'><Button className='login'>登录</Button></Link>
-            }    
+            }
             <Button className='lang-Transform right'>
               <i className='iconfont'>&#xe636;</i>
             </Button>  
@@ -152,6 +156,10 @@ const mapDispatchToProps = (dispatch) => {
       // 换页
       page < totalPage ? page += 1 : page = 1
       dispatch(actionCreators.changePage(page))
+    },
+
+    logout () {
+      dispatch(loginActionCreators.logout())
     }
   }
 }
