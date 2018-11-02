@@ -86,17 +86,19 @@ class Header extends PureComponent {
                 timeout={300}
                 classNames='slide'
               >
-                <NavSearch              
+                <NavSearch
                   onFocus={() => handleInputFocus(list)}
                   onBlur={handleInputBlur}
-                ></NavSearch>              
+                ></NavSearch>
               </CSSTransition>
               <i className='iconfont icon-search'>&#xe6e4;</i>
               {this.getSearchListArea()}           
             </SearchWrapper>          
           </Nav>
-          <Addition>                                            
-            <Button className='write-btn'><i className='iconfont'>&#xe715;</i> 写文章</Button>                      
+          <Addition>
+            <Link to='/write'>
+              <Button className='write-btn'><i className='iconfont'>&#xe715;</i> 写文章</Button>                      
+            </Link>                                                        
             <Button className='reg'>注册</Button>
             {
               login 
